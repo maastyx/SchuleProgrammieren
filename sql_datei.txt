@@ -1,0 +1,19 @@
+CREATE TABLE kunde(
+id long NOT NULL IDENTITY(1,1) PRIMARY KEY,
+kunde_seit datetime NOT NULL,
+vorname varchar(100) NOT NULL,
+nachname varchar(100) NOT NULL,
+strasse varchar(MAX) NOT NULL,
+telefonkontakt varchar(100) NOT NULL,
+ort varchar(100) NOT NULL,
+land char(2) NOT NULL,
+PRIMARY KEY (id));
+
+
+CREATE TABLE bestellungen(
+id long NOT NULL IDENTITY(1,1) PRIMARY KEY,
+bestellt datetime NOT NULL,
+geliefert datetime NOT NULL,
+kunde long NOT NULL FOREIGN KEY REFERENCES kunde(id),
+text varchar(MAX) NOT NULL,
+abgelehnt boolean);
