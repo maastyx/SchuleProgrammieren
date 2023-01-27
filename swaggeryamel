@@ -1,0 +1,126 @@
+openapi: 3.0.3
+info:
+  title: Pizzabestellung - API
+  version: 2.0.0
+paths:
+  /bestellung:
+    post:
+      requestBody:
+        description: Legt eine Bestellung an
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/bestellung"
+        required: true
+      responses:
+       '200':
+        description: Bestellung Ok
+    get:
+      responses:
+        '200':
+         description: Bestellung Ok
+         content:
+          application/json:
+              schema:
+                $ref: "#/components/schemas/bestellung"
+  /index:
+    get:
+      responses:
+        '200':
+          description: Die Seite als Antwort
+          content:
+            text/html:
+              schema:
+                $ref: '#/components/schemas/index'
+  /kunde
+    post:
+      requestBody:
+        description: Legt eine Kunden an
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/kunde"
+        required: true
+      responses:
+       '200':
+        description: Kunde Ok
+        
+components:
+  schemas:
+    bestellung:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          description: Der Primärschlussel der Bestellung
+          example: 112
+        bestellt:
+          type: string
+          format: date-time
+          description: Der Bestellungszeitpunkt
+          example: '2022-12-12T08:12:00Z'
+        geliefert:
+          type: string
+          format: date-time
+          description: Der Lieferzeitpunkt
+          example: '2022-12-12T08:12:00Z'
+        kunde:
+          type: integer
+          description: Die Kundennummer
+          example: 12
+        text:
+          type: string
+          minLength: 5
+          maxLength: 999999
+          nullable: false
+          description: Die Bestellung
+          example: 1 * Pizza mit Käse
+        abgelehnt:
+          type: boolean
+          description: Ob die Bestllung abgelehnt wurde
+          example: True
+    index:
+      type: string
+      example: Hallo
+    kunde:
+      type: object
+      properties:
+        id: 
+          type: integer
+          format: int64
+          description: Der Primärschlüssel der Kunden
+          example: 123421
+        kunde_seit:
+          type: string
+          format: date-time
+          description: Der Zeitpunkt ab wann der Kunde regestiert ist
+          example: '2022-12-12T08:12:00Z'
+        vorname:
+          type: string
+          minLength: 1
+          maxLength: 100
+          description: Vorname
+          example: Max
+        nachname:
+          type: string
+          minLength: 1
+          maxLength: 100
+          description: Nachname
+          example: Musterman
+        strasse:
+          type: string
+          description: Die Straße
+          example: Musterstrasse 123
+        telefonkontakt:
+          type: string
+          description: Die Telefonnummer
+          example: +012312471239
+        ort:
+          type: string
+          description: Der Ort
+          example: Musterstadt
+        land:
+          type: string
+          description: Das Länderkürzel
+          example: DE = Deutschland
