@@ -32,7 +32,7 @@ paths:
             text/html:
               schema:
                 $ref: '#/components/schemas/index'
-  /kunde
+  /kunde:
     post:
       requestBody:
         description: Legt eine Kunden an
