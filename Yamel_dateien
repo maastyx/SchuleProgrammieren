@@ -1,0 +1,68 @@
+openapi: 3.0.3
+info:
+  title: Pizza Time 2.0
+  version: 1.0.0
+paths:
+  /bestellung:
+    post:
+      requestBody:
+        description: Legt eine neue bestellung an
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/bestellung'
+        required: true
+      responses:
+        '200':
+          description: Bestellung OK
+  /kunde:
+    post:
+      requestBody:
+        description: Legt einen neue Kunden an
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/kunde'
+        required: true
+      responses:
+        '200':
+          description: Kunde OK
+            
+
+components:
+  schemas:
+    bestellung:
+      type: object
+      properties:
+        text:
+          type: string
+          description: Der Bestelltext der Bestellung
+          example: 1x Pizza Salami, 1x Pizza Funghi
+        
+    kunde:
+      type: object
+      properties:
+        vorname:
+          type: string
+          description: Vorname des Kunden
+          example: Hans
+        nachname:
+          type: string
+          description: Nachname des Kunden
+          example: Dieter
+        strasse:
+          type: string
+          description: strasse des Kunden
+          example: Beispielstrasse
+        telefonkontakt:
+          type: string
+          description: Telefonnummer des Kunden
+          example: 1233456789
+        ort:
+          type: string
+          description: Ort des Kunden
+          example: Beispielort
+        land:
+          type: string
+          description: Land des Kunden
+          example: Deutschland
