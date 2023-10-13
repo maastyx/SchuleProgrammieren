@@ -1,6 +1,6 @@
-!ban Der___markus
-!ban Aten
-!ban Markzynk
-!ban Vlmercy
-!ban Williamvea2rw
-!ban Yamickle
+/ban Der___markus
+/ban Aten
+/ban Markzynk
+/ban Vlmercy
+/ban Williamvea2rw
+/ban Yamickle
